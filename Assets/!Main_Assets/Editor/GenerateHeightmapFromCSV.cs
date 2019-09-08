@@ -8,7 +8,7 @@ using System.IO;
 public static class MenuFunctions
 {
     public static ushort texSize = 2048;
-    public static ushort[] dummyData = LoadData();
+    public static ushort[] dummyData;// = LoadData();
     
     public static ushort[] GenerateDummyData(ushort size = 512)
     {
@@ -29,19 +29,27 @@ public static class MenuFunctions
         using (var reader = new StreamReader(path))
         {
             int linesRead = 0;
+            int rowsRead = 0;
             float min = float.MaxValue;
             float max = 0;
             while (!reader.EndOfStream)
             {
+                if (rowsRead >= texSize)
+                {
+                    Debug.Log("RowsRead: " + rowsRead);
+                    break;
+                }
+                ++rowsRead;
                 var line = reader.ReadLine();
                 var values = line.Split(',');
                 for (int i = 0; i < values.Length-1; i++)
                 {
-                    float height = float.Parse(values[i]);
+                    float height = (2238 - float.Parse(values[i]));
                     min = Mathf.Min(min, height);
                     max = Mathf.Max(max, height);
-                    returnVal[linesRead++] = (ushort)(float.Parse(values[i]) * 100);
+                    returnVal[linesRead++] = (ushort)(height * 10);
                 }
+                //Debug.Log(values.Length-1);
             }
             Debug.Log("Min: " + min + ", Max: " + max);
         }
