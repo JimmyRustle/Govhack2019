@@ -1,7 +1,7 @@
 # Picked a fairly arbitrary square of data, aiming for a good patch of ocean. Each row is 3,333 entries long and we want to get a (n x n) region from here where n is a power-of-two + 1 (in order to work with Unity's terrain system)
-dataset_path = "C:\\Users\\danie\\Govhack2019\\Python Scripts\\gbr30_all_water_roi.txt" # Generated from filter_reef_data_longlat
+dataset_path = "C:\\Users\\danie\\Govhack2019\\Python Scripts\\gbr30_all_water_roid_v2_Deep.txt" # Generated from filter_reef_data_longlat
 f = open(dataset_path)
-fw = open("C:\\Users\\danie\\Govhack2019\\Python Scripts\\gbr30_water_nxn.txt", 'w')
+fw = open("C:\\Users\\danie\\Govhack2019\\Python Scripts\\gbr30_water_nxn2.txt", 'w')
 
 column_iter = 0
 row_iter = 0

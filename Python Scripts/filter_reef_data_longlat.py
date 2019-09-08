@@ -2,7 +2,7 @@
 # Specify a set of min and max lat long coords to filter it
 
 dataset_path = "E:\\Downloads\\115066_ASCII_XYZ\\01_ASCII_XYZ\\gbr30_all1.txt"
-output_path = "C:\\Users\\danie\\Govhack2019\\Python Scripts\\gbr30_all_water_roi.txt"
+output_path = "C:\\Users\\danie\\Govhack2019\\Python Scripts\\gbr30_all_water_roid_v2_Deep.txt"
 f = open(dataset_path)
 fw = open(output_path, 'w')
 
@@ -10,10 +10,10 @@ num_read = 0
 
 f.seek(28) # Skip the header (Lat, Long, Depth)
 
-min_long = 152
-max_long = 154 # Exclusive
-min_lat = -20
-max_lat = -18
+min_long = 154
+max_long = 156 # Exclusive
+min_lat = -25
+max_lat = -23
 for line in f:
      line_split = (line.split(',')) # Lat, Long, Depth
      num_read += 1
